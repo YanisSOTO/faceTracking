@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyFaceTracking" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6R-6Z-Mrv">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <connections>
+                                    <segue destination="UZ2-cF-plx" kind="embed" identifier="faceTrackerEmbed" id="kSk-t6-Zvx"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fJ-y0-bGO">
+                                <rect key="frame" x="357" y="28" width="41" height="37"/>
+                                <state key="normal" title="Button" image="swapCamera"/>
+                                <connections>
+                                    <action selector="swapAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gCR-7r-dRu"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K37-pX-IzO">
+                                <rect key="frame" x="0.0" y="644" width="414" height="92"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3fJ-y0-bGO" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:20" id="0LO-YY-9hC"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="K37-pX-IzO" secondAttribute="bottom" id="6Vn-U8-5lg"/>
+                            <constraint firstItem="p6R-6Z-Mrv" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="BSw-Ex-6nS"/>
+                            <constraint firstItem="p6R-6Z-Mrv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ET3-Vc-wuR"/>
+                            <constraint firstAttribute="trailing" secondItem="3fJ-y0-bGO" secondAttribute="trailing" multiplier="1.04" id="F1c-uu-a1b"/>
+                            <constraint firstItem="3fJ-y0-bGO" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:10" id="KKo-Xj-X4L"/>
+                            <constraint firstItem="3fJ-y0-bGO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" multiplier="1.4" id="KUW-Ix-wzA"/>
+                            <constraint firstAttribute="trailing" secondItem="K37-pX-IzO" secondAttribute="trailing" id="Vei-i6-CRN"/>
+                            <constraint firstItem="K37-pX-IzO" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:8" id="b9x-Ij-Qfb"/>
+                            <constraint firstItem="K37-pX-IzO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kDr-HF-nNJ"/>
+                            <constraint firstItem="p6R-6Z-Mrv" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="toy-O0-j7x"/>
+                            <constraint firstAttribute="trailing" secondItem="p6R-6Z-Mrv" secondAttribute="trailing" id="yzf-C1-2iH"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="faceTrackerContainerView" destination="p6R-6Z-Mrv" id="I9U-k9-zqp"/>
+                        <outlet property="scrollView" destination="K37-pX-IzO" id="Vfe-da-0HD"/>
+                        <outlet property="swapButton" destination="3fJ-y0-bGO" id="9i8-uE-Ww0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-556" y="-192"/>
+        </scene>
+        <!--Face Tracker View Controller-->
+        <scene sceneID="fzx-s4-SPy">
+            <objects>
+                <viewController id="UZ2-cF-plx" customClass="FaceTrackerViewController" customModule="FaceTracker" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xdz-Cr-DWy"/>
+                        <viewControllerLayoutGuide type="bottom" id="vem-P8-3c1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="S14-As-Y1c">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AaZ-8f-j8l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="-192"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="swapCamera" width="128" height="128"/>
+    </resources>
+</document>

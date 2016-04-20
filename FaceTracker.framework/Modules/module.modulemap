@@ -1,0 +1,10 @@
+framework module FaceTracker {
+  umbrella header "FaceTracker.h"
+
+  export *
+  module * { export * }
+}
+
+module FaceTracker.Swift {
+    header "FaceTracker-Swift.h"
+}
