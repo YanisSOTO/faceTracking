@@ -10,12 +10,14 @@ import UIKit
 import FaceTracker
 import SwiftGifOrigin
 
+
 class ViewController: UIViewController, FaceTrackerViewControllerDelegate, UIScrollViewDelegate {
     /* FaceTrackerProtocol */
     weak var faceTrackerViewController: FaceTrackerViewController?
     
     let filter = Filter()
     
+    @IBOutlet var test: UIImageView!
     /* State filter */
     var stateFilter = 0
     
@@ -23,6 +25,8 @@ class ViewController: UIViewController, FaceTrackerViewControllerDelegate, UIScr
     var leftEyeView = UIImageView()
     var rightEyeView = UIImageView()
     var noseDogView = UIImageView()
+    var tongueDogView = UIImageView()
+    var waterFallView = UIImageView()
     /* End */
     
     /* Boutlet from MainStoryBoard */
@@ -34,9 +38,6 @@ class ViewController: UIViewController, FaceTrackerViewControllerDelegate, UIScr
     override func viewDidLoad() {
         super.viewDidLoad()
         createButton()
-        
-       // let gifos = UIImage.gifWithName("giphy")
-        //testIM.image = gifos
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,16 +53,26 @@ class ViewController: UIViewController, FaceTrackerViewControllerDelegate, UIScr
        
     func faceTrackerDidUpdate(points: FacePoints?) {
         if let points = points {
+            hideAllView()
             switch self.stateFilter {
             case 0:
-                leftEyeView = filter.drawHearthLeft(points.leftEye)
+                leftEyeView = filter.drawHeart(points.leftEye, side: "left")
                 self.view.addSubview(leftEyeView)
-                rightEyeView = filter.drawHearthRight(points.rightEye)
+                rightEyeView = filter.drawHeart(points.rightEye, side: "right")
                 self.view.addSubview(rightEyeView)
             case 1:
-                hideAllView()
                 noseDogView = filter.drawDogNose(points.nose)
                 self.view.addSubview(noseDogView)
+                if ((points.outerMouth[10].y - points.outerMouth[2].y) > 60) {
+                    tongueDogView = filter.drawDogTongue(points.outerMouth)
+                    self.view.addSubview(tongueDogView)
+                }
+            case 2:
+                if ((points.outerMouth[10].y - points.outerMouth[2].y) > 60) {
+                    waterFallView = filter.drawWaterFall(points.outerMouth)
+                    self.view.addSubview(waterFallView)
+                }
+
             default:
                 print("No state")
             }
@@ -75,6 +86,9 @@ class ViewController: UIViewController, FaceTrackerViewControllerDelegate, UIScr
     func hideAllView() {
         leftEyeView.hidden = true
         rightEyeView.hidden = true
+        noseDogView.hidden = true
+        tongueDogView.hidden = true
+        waterFallView.hidden = true
     }
     
     /* Simple Swap camera */
@@ -86,15 +100,19 @@ class ViewController: UIViewController, FaceTrackerViewControllerDelegate, UIScr
     /* Create Button and fill it && Action button */
     func createButton() {
         let imageArray = fillImageArray()
-        for index in 0..<2 {
-            let frame1 = CGRect(x: (self.view.frame.size.width / 2) + CGFloat(index * 70), y: 0, width: 55, height: 55 )
+        var lastButtonWidth: CGFloat = 0
+
+        
+        for index in 0..<4 {
+            let frame1 = CGRect(x: ((self.view.frame.size.width / 2) - 27.5) + CGFloat(index * 70), y: 0, width: 55, height: 55 )
             let button = UIButton(frame: frame1)
             button.setImage(imageArray[index], forState: .Normal)
             button.tag = index
             button.addTarget(parentViewController, action: #selector(ViewController.buttonClicked(_:)), forControlEvents: .TouchUpInside)
             self.scrollView.addSubview(button)
+            lastButtonWidth = frame1.origin.x
         }
-        self.scrollView.contentSize = CGSizeMake(600, 0) //Have to change it Later
+        self.scrollView.contentSize = CGSizeMake(lastButtonWidth + 55, 0)
     }
     
     func buttonClicked(sender:UIButton)
@@ -105,6 +123,8 @@ class ViewController: UIViewController, FaceTrackerViewControllerDelegate, UIScr
             self.stateFilter = 0
         case 1:
             self.stateFilter = 1
+        case 2:
+            self.stateFilter = 2
         default:
             print("No button selected")
         }

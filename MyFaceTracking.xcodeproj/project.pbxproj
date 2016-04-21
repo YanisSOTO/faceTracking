@@ -15,8 +15,10 @@
 		098C465F1CC0F07800D8D885 /* FaceTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 098C465E1CC0F07800D8D885 /* FaceTracker.framework */; };
 		098C46601CC0F07800D8D885 /* FaceTracker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 098C465E1CC0F07800D8D885 /* FaceTracker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		099049841CC7AD4F00C61207 /* filterClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099049831CC7AD4F00C61207 /* filterClass.swift */; };
-		099049891CC8D25200C61207 /* giphy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 099049881CC8D25100C61207 /* giphy.gif */; };
+		0990498B1CC9005D00C61207 /* processPointsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0990498A1CC9005D00C61207 /* processPointsClass.swift */; };
 		09E6657C1CC7A0E200A6AB0F /* fillImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E6657B1CC7A0E200A6AB0F /* fillImageButton.swift */; };
+		09FB03841CC92281000C170B /* rainbow.gif in Resources */ = {isa = PBXBuildFile; fileRef = 09FB03831CC92281000C170B /* rainbow.gif */; };
+		09FB03861CC9250D000C170B /* waterFall.gif in Resources */ = {isa = PBXBuildFile; fileRef = 09FB03851CC9250D000C170B /* waterFall.gif */; };
 		7F625BDA291DA18D8A59E6F5 /* Pods_MyFaceTracking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D64C2E76153FB114393411A /* Pods_MyFaceTracking.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,8 +46,10 @@
 		098C46581CC0F04D00D8D885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		098C465E1CC0F07800D8D885 /* FaceTracker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FaceTracker.framework; sourceTree = "<group>"; };
 		099049831CC7AD4F00C61207 /* filterClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = filterClass.swift; sourceTree = "<group>"; };
-		099049881CC8D25100C61207 /* giphy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy.gif; sourceTree = "<group>"; };
+		0990498A1CC9005D00C61207 /* processPointsClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = processPointsClass.swift; sourceTree = "<group>"; };
 		09E6657B1CC7A0E200A6AB0F /* fillImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fillImageButton.swift; sourceTree = "<group>"; };
+		09FB03831CC92281000C170B /* rainbow.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rainbow.gif; sourceTree = "<group>"; };
+		09FB03851CC9250D000C170B /* waterFall.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = waterFall.gif; sourceTree = "<group>"; };
 		4D64C2E76153FB114393411A /* Pods_MyFaceTracking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFaceTracking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A120722CB51F8E85C33D45E4 /* Pods-MyFaceTracking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFaceTracking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFaceTracking/Pods-MyFaceTracking.debug.xcconfig"; sourceTree = "<group>"; };
 		EC234E5B0341F62420ECB75E /* Pods-MyFaceTracking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFaceTracking.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFaceTracking/Pods-MyFaceTracking.release.xcconfig"; sourceTree = "<group>"; };
@@ -89,7 +93,7 @@
 				098C464C1CC0F04D00D8D885 /* AppDelegate.swift */,
 				098C464E1CC0F04D00D8D885 /* ViewController.swift */,
 				098C46501CC0F04D00D8D885 /* Main.storyboard */,
-				099049881CC8D25100C61207 /* giphy.gif */,
+				09FB03801CC9211C000C170B /* gif */,
 				098C46531CC0F04D00D8D885 /* Assets.xcassets */,
 				098C46551CC0F04D00D8D885 /* LaunchScreen.storyboard */,
 				09E6657A1CC7A0CC00A6AB0F /* Tools */,
@@ -103,8 +107,18 @@
 			children = (
 				09E6657B1CC7A0E200A6AB0F /* fillImageButton.swift */,
 				099049831CC7AD4F00C61207 /* filterClass.swift */,
+				0990498A1CC9005D00C61207 /* processPointsClass.swift */,
 			);
 			name = Tools;
+			sourceTree = "<group>";
+		};
+		09FB03801CC9211C000C170B /* gif */ = {
+			isa = PBXGroup;
+			children = (
+				09FB03851CC9250D000C170B /* waterFall.gif */,
+				09FB03831CC92281000C170B /* rainbow.gif */,
+			);
+			name = gif;
 			sourceTree = "<group>";
 		};
 		2C8A13E97A813BE0AC9BC735 /* Pods */ = {
@@ -187,9 +201,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09FB03861CC9250D000C170B /* waterFall.gif in Resources */,
 				098C46571CC0F04D00D8D885 /* LaunchScreen.storyboard in Resources */,
+				09FB03841CC92281000C170B /* rainbow.gif in Resources */,
 				098C46541CC0F04D00D8D885 /* Assets.xcassets in Resources */,
-				099049891CC8D25200C61207 /* giphy.gif in Resources */,
 				098C46521CC0F04D00D8D885 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,6 +267,7 @@
 				099049841CC7AD4F00C61207 /* filterClass.swift in Sources */,
 				098C464F1CC0F04D00D8D885 /* ViewController.swift in Sources */,
 				098C464D1CC0F04D00D8D885 /* AppDelegate.swift in Sources */,
+				0990498B1CC9005D00C61207 /* processPointsClass.swift in Sources */,
 				09E6657C1CC7A0E200A6AB0F /* fillImageButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

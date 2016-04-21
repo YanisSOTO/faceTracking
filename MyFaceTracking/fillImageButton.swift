@@ -18,5 +18,8 @@ func fillImageArray () -> [Int: UIImage] {
     if imageArray[1] == nil {
         imageArray[1] = UIImage(named: "dogButton.png")
     }
+    if imageArray[2] == nil {
+        imageArray[2] = UIImage(named: "rainbowButton.png")
+    }
     return (imageArray)
 }

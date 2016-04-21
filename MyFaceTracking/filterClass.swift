@@ -7,80 +7,109 @@
 //
 
 import UIKit
+import SwiftGifOrigin
+
 
 class Filter {
-    
-    var eyeLeftView = UIImageView()
-    var eyeRightView = UIImageView()
+    var eye = ["left": UIImageView(),
+               "right": UIImageView()]
     var noseDogView = UIImageView()
+    var tongueDogView = UIImageView()
+    var waterFallView = UIImageView()
     
-    func drawHearthLeft(points: [CGPoint]) -> UIImageView {
-        let image = UIImage(named: "coeur.png")
-        
-        eyeLeftView.image = image
-        let centerEye = CGPointMake((points[0].x + points[5].x) / 2, (points[0].y + points[5].y) / 2)
-        let eyeCornerDist = sqrt(pow(points[0].x - points[5].x, 2) + pow(points[0].y - points[5].y, 2))
+    let processPoint = ProcessPoints()
+    
+    /** HEART **/
+    
+    func drawHeart(points: [CGPoint], side: String) -> UIImageView {
+        if (side == "left") {
+            let image = UIImage(named: "coeur.png")
+            eye[side]!.image = image
+        } else {
+            let image = UIImage(named: "coeur.png")
+             eye[side]!.image = image
+        }
+
+        let centerEye = processPoint.processCenter(points[0], point2: points[5])
+        let eyeCornerDist = processPoint.processCornerDist(points[0], point2: points[5])
         let eyeWidth = 2.0 * eyeCornerDist
-        let eyeHeight = (eyeLeftView.image!.size.height / eyeLeftView.image!.size.width) * eyeWidth
-        eyeLeftView.transform = CGAffineTransformIdentity
-        eyeLeftView.frame = CGRectMake(centerEye.x - eyeWidth / 2, centerEye.y - eyeWidth / 2, eyeWidth, eyeHeight)
-        eyeLeftView.hidden = false
-        setAnchorPoint(CGPointMake(0.5, 1.0), forView: eyeLeftView)
-        let angle = atan2(points[5].y - points[0].y, points[5].x - points[0].x)
-        eyeLeftView.transform = CGAffineTransformMakeRotation(angle)
-        return (eyeLeftView)
+        let eyeHeight = (eye[side]!.image!.size.height / eye[side]!.image!.size.width) * eyeWidth
+        
+        eye[side]!.transform = CGAffineTransformIdentity
+        eye[side]!.frame = CGRectMake(centerEye.x - eyeWidth / 2, centerEye.y - eyeWidth / 2, eyeWidth, eyeHeight)
+        eye[side]!.hidden = false
+        processPoint.setAnchorPoint(CGPointMake(0.5, 1.0), forView:  eye[side]!)
+        eye[side]!.transform = CGAffineTransformMakeRotation(processPoint.processAngle(points[0], point2: points[5]))
+    
+        return ( eye[side]!)
     }
     
-    
-    func drawHearthRight(points: [CGPoint]) -> UIImageView {
-        let image = UIImage(named: "coeur.png")
-        
-        eyeRightView.image = image
-        let centerEye = CGPointMake((points[0].x + points[5].x) / 2, (points[0].y + points[5].y) / 2)
-        let eyeCornerDist = sqrt(pow(points[0].x - points[5].x, 2) + pow(points[0].y - points[5].y, 2))
-        let eyeWidth = 2.0 * eyeCornerDist
-        let eyeHeight = (eyeRightView.image!.size.height / eyeRightView.image!.size.width) * eyeWidth
-        eyeRightView.transform = CGAffineTransformIdentity
-        eyeRightView.frame = CGRectMake(centerEye.x - eyeWidth / 2, centerEye.y - eyeWidth / 2, eyeWidth, eyeHeight)
-        eyeRightView.hidden = false
-        setAnchorPoint(CGPointMake(0.5, 1.0), forView: eyeRightView)
-        let angle = atan2(points[5].y - points[0].y, points[5].x - points[0].x)
-        eyeRightView.transform = CGAffineTransformMakeRotation(angle)
-        
-        return (eyeRightView)
-    }
+    /** NOSE DOG **/
     
     func drawDogNose(points: [CGPoint]) -> UIImageView {
-        let image = UIImage(named: "noseDog.png")
+        if (noseDogView.image == nil) {
+            let image = UIImage(named: "noseDog.png")
+            noseDogView.image = image
+        }
         
-        noseDogView.image = image
-        let centerNose = CGPointMake((points[0].x + points[6].x) / 2, ((points[0].y + points[3].y) + 40) / 2)
-        let noseCornerDist = sqrt(pow(points[0].x - points[6].x, 2) + pow(points[0].y - points[3].y, 2))
+        let centerNose = processPoint.processCenter(points[0], point2: points[6])
+        let noseCornerDist = processPoint.processCornerDist(points[0], point2: points[6])
         let noseWidth = 2.0 * noseCornerDist
         let noseHeight = (noseDogView.image!.size.height / noseDogView.image!.size.width) * noseWidth
         
         noseDogView.transform = CGAffineTransformIdentity
-        noseDogView.frame = CGRectMake(centerNose.x - noseWidth / 2, centerNose.y - noseWidth / 2, noseWidth, noseHeight)
+        noseDogView.frame = CGRectMake(centerNose.x - noseWidth / 2, (centerNose.y - noseWidth / 2) + 30, noseWidth, noseHeight)
         noseDogView.hidden = false
-        setAnchorPoint(CGPointMake(0.5, 1.0), forView: noseDogView)
-        let angle = atan2(points[6].y - points[0].y, points[6].x - points[0].x)
-        noseDogView.transform = CGAffineTransformMakeRotation(angle)
+        processPoint.setAnchorPoint(CGPointMake(0.5, 1.0), forView: noseDogView)
+        noseDogView.transform = CGAffineTransformMakeRotation(processPoint.processAngle(points[0], point2: points[6]))
         
         return (noseDogView)
     }
     
-    func setAnchorPoint(anchorPoint: CGPoint, forView view: UIView) {
-        var newPoint = CGPointMake(view.bounds.size.width * anchorPoint.x, view.bounds.size.height * anchorPoint.y)
-        var oldPoint = CGPointMake(view.bounds.size.width * view.layer.anchorPoint.x, view.bounds.size.height * view.layer.anchorPoint.y)
-        newPoint = CGPointApplyAffineTransform(newPoint, view.transform)
-        oldPoint = CGPointApplyAffineTransform(oldPoint, view.transform)
-        var position = view.layer.position
-        position.x -= oldPoint.x
-        position.x += newPoint.x
-        position.y -= oldPoint.y
-        position.y += newPoint.y
-        view.layer.position = position
-        view.layer.anchorPoint = anchorPoint
+    /** TONGUE DOG **/
+    
+    func drawDogTongue(points: [CGPoint]) -> UIImageView {
+        if (tongueDogView.image == nil) {
+            let image = UIImage(named: "tongueDog.png")
+            tongueDogView.image = image
+        }
+        
+        let center = processPoint.processCenter(points[0], point2: points[7])
+        let cornerDist = processPoint.processCornerDist(points[0], point2: points[7])
+        let width = 2.0 * cornerDist
+        let height = (tongueDogView.image!.size.height / tongueDogView.image!.size.width) * width
+        
+        tongueDogView.transform = CGAffineTransformIdentity
+        tongueDogView.frame = CGRectMake(center.x - width / 2, center.y, width, height)
+        tongueDogView.hidden = false
+        processPoint.setAnchorPoint(CGPointMake(0.5, 1.0), forView: tongueDogView)
+        tongueDogView.transform = CGAffineTransformMakeRotation(processPoint.processAngle(points[0], point2: points[6]))
+        
+        return (tongueDogView)
+    }
+    
+    /** WATERFALL **/
+    
+    func drawWaterFall(points: [CGPoint]) -> UIImageView {
+        
+        if (waterFallView.image == nil) {
+            let image = UIImage.gifWithName("waterFall")
+            waterFallView.image = image
+        }
+        
+        let center = processPoint.processCenter(points[0], point2: points[7])
+        let cornerDist = processPoint.processCornerDist(points[0], point2: points[7])
+        let width = 2.0 * cornerDist
+        let height = (waterFallView.image!.size.height / waterFallView.image!.size.width) * width
+        
+        
+        waterFallView.transform = CGAffineTransformIdentity
+        waterFallView.frame = CGRectMake(center.x - width / 2, center.y, width, height)
+        waterFallView.hidden = false
+        processPoint.setAnchorPoint(CGPointMake(0.5, 1.0), forView: waterFallView)
+        waterFallView.transform = CGAffineTransformMakeRotation(processPoint.processAngle(points[0], point2: points[6]))
+        
+        return (waterFallView)
     }
 
 }
