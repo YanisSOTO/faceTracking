@@ -12,7 +12,7 @@ class Filter {
     
     var eyeLeftView = UIImageView()
     var eyeRightView = UIImageView()
-
+    var noseDogView = UIImageView()
     
     func drawHearthLeft(points: [CGPoint]) -> UIImageView {
         let image = UIImage(named: "coeur.png")
@@ -50,6 +50,24 @@ class Filter {
         return (eyeRightView)
     }
     
+    func drawDogNose(points: [CGPoint]) -> UIImageView {
+        let image = UIImage(named: "noseDog.png")
+        
+        noseDogView.image = image
+        let centerNose = CGPointMake((points[0].x + points[6].x) / 2, ((points[0].y + points[3].y) + 40) / 2)
+        let noseCornerDist = sqrt(pow(points[0].x - points[6].x, 2) + pow(points[0].y - points[3].y, 2))
+        let noseWidth = 2.0 * noseCornerDist
+        let noseHeight = (noseDogView.image!.size.height / noseDogView.image!.size.width) * noseWidth
+        
+        noseDogView.transform = CGAffineTransformIdentity
+        noseDogView.frame = CGRectMake(centerNose.x - noseWidth / 2, centerNose.y - noseWidth / 2, noseWidth, noseHeight)
+        noseDogView.hidden = false
+        setAnchorPoint(CGPointMake(0.5, 1.0), forView: noseDogView)
+        let angle = atan2(points[6].y - points[0].y, points[6].x - points[0].x)
+        noseDogView.transform = CGAffineTransformMakeRotation(angle)
+        
+        return (noseDogView)
+    }
     
     func setAnchorPoint(anchorPoint: CGPoint, forView view: UIView) {
         var newPoint = CGPointMake(view.bounds.size.width * anchorPoint.x, view.bounds.size.height * anchorPoint.y)

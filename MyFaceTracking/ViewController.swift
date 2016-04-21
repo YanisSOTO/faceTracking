@@ -8,6 +8,7 @@
 
 import UIKit
 import FaceTracker
+import SwiftGifOrigin
 
 class ViewController: UIViewController, FaceTrackerViewControllerDelegate, UIScrollViewDelegate {
     /* FaceTrackerProtocol */
@@ -21,6 +22,7 @@ class ViewController: UIViewController, FaceTrackerViewControllerDelegate, UIScr
     /* View for Filter */
     var leftEyeView = UIImageView()
     var rightEyeView = UIImageView()
+    var noseDogView = UIImageView()
     /* End */
     
     /* Boutlet from MainStoryBoard */
@@ -32,6 +34,9 @@ class ViewController: UIViewController, FaceTrackerViewControllerDelegate, UIScr
     override func viewDidLoad() {
         super.viewDidLoad()
         createButton()
+        
+       // let gifos = UIImage.gifWithName("giphy")
+        //testIM.image = gifos
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,7 +59,9 @@ class ViewController: UIViewController, FaceTrackerViewControllerDelegate, UIScr
                 rightEyeView = filter.drawHearthRight(points.rightEye)
                 self.view.addSubview(rightEyeView)
             case 1:
-                print("drawDog")
+                hideAllView()
+                noseDogView = filter.drawDogNose(points.nose)
+                self.view.addSubview(noseDogView)
             default:
                 print("No state")
             }
