@@ -19,6 +19,8 @@
 		09E6657C1CC7A0E200A6AB0F /* fillImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E6657B1CC7A0E200A6AB0F /* fillImageButton.swift */; };
 		09FB03841CC92281000C170B /* rainbow.gif in Resources */ = {isa = PBXBuildFile; fileRef = 09FB03831CC92281000C170B /* rainbow.gif */; };
 		09FB03861CC9250D000C170B /* waterFall.gif in Resources */ = {isa = PBXBuildFile; fileRef = 09FB03851CC9250D000C170B /* waterFall.gif */; };
+		09FB03881CD23542000C170B /* screenshotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FB03871CD23542000C170B /* screenshotViewController.swift */; };
+		09FB038A1CD28FC5000C170B /* captureScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FB03891CD28FC5000C170B /* captureScreen.swift */; };
 		7F625BDA291DA18D8A59E6F5 /* Pods_MyFaceTracking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D64C2E76153FB114393411A /* Pods_MyFaceTracking.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,8 @@
 		09E6657B1CC7A0E200A6AB0F /* fillImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fillImageButton.swift; sourceTree = "<group>"; };
 		09FB03831CC92281000C170B /* rainbow.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rainbow.gif; sourceTree = "<group>"; };
 		09FB03851CC9250D000C170B /* waterFall.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = waterFall.gif; sourceTree = "<group>"; };
+		09FB03871CD23542000C170B /* screenshotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = screenshotViewController.swift; sourceTree = "<group>"; };
+		09FB03891CD28FC5000C170B /* captureScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = captureScreen.swift; sourceTree = "<group>"; };
 		4D64C2E76153FB114393411A /* Pods_MyFaceTracking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFaceTracking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A120722CB51F8E85C33D45E4 /* Pods-MyFaceTracking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFaceTracking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFaceTracking/Pods-MyFaceTracking.debug.xcconfig"; sourceTree = "<group>"; };
 		EC234E5B0341F62420ECB75E /* Pods-MyFaceTracking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFaceTracking.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFaceTracking/Pods-MyFaceTracking.release.xcconfig"; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 			children = (
 				098C464C1CC0F04D00D8D885 /* AppDelegate.swift */,
 				098C464E1CC0F04D00D8D885 /* ViewController.swift */,
+				09FB03871CD23542000C170B /* screenshotViewController.swift */,
 				098C46501CC0F04D00D8D885 /* Main.storyboard */,
 				09FB03801CC9211C000C170B /* gif */,
 				098C46531CC0F04D00D8D885 /* Assets.xcassets */,
@@ -106,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				09E6657B1CC7A0E200A6AB0F /* fillImageButton.swift */,
+				09FB03891CD28FC5000C170B /* captureScreen.swift */,
 				099049831CC7AD4F00C61207 /* filterClass.swift */,
 				0990498A1CC9005D00C61207 /* processPointsClass.swift */,
 			);
@@ -268,6 +274,8 @@
 				098C464F1CC0F04D00D8D885 /* ViewController.swift in Sources */,
 				098C464D1CC0F04D00D8D885 /* AppDelegate.swift in Sources */,
 				0990498B1CC9005D00C61207 /* processPointsClass.swift in Sources */,
+				09FB038A1CD28FC5000C170B /* captureScreen.swift in Sources */,
+				09FB03881CD23542000C170B /* screenshotViewController.swift in Sources */,
 				09E6657C1CC7A0E200A6AB0F /* fillImageButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

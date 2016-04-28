@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -31,40 +32,119 @@
                                     <action selector="swapAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gCR-7r-dRu"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhR-3P-GTa">
+                                <rect key="frame" x="165" y="635" width="83" height="82"/>
+                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K37-pX-IzO">
                                 <rect key="frame" x="0.0" y="644" width="414" height="92"/>
                             </scrollView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5bV-yU-IU7">
-                                <rect key="frame" x="92" y="147" width="240" height="128"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jv-hn-KsV" userLabel="activatePhoto">
+                                <rect key="frame" x="166" y="635" width="83" height="82"/>
+                                <connections>
+                                    <action selector="photoAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8gB-ja-F99"/>
+                                    <segue destination="vRh-1W-kiP" kind="show" identifier="screenshotEmbed" action="showDetailViewController:sender:" id="cM5-IB-X5V"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5bV-yU-IU7">
+                                <rect key="frame" x="-84" y="-34" width="25" height="11"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="Mlk-bj-jgI"/>
+                                    <constraint firstAttribute="height" constant="11" id="yiy-Gb-xT1"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3fJ-y0-bGO" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:20" id="0LO-YY-9hC"/>
+                            <constraint firstItem="mhR-3P-GTa" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:9" id="2Bo-lY-DYc"/>
+                            <constraint firstItem="mhR-3P-GTa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="3.67:2" id="4bE-EW-hTe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="K37-pX-IzO" secondAttribute="bottom" id="6Vn-U8-5lg"/>
                             <constraint firstItem="p6R-6Z-Mrv" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="BSw-Ex-6nS"/>
+                            <constraint firstItem="3jv-hn-KsV" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:9" id="DYZ-E3-sOJ"/>
                             <constraint firstItem="p6R-6Z-Mrv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ET3-Vc-wuR"/>
                             <constraint firstAttribute="trailing" secondItem="3fJ-y0-bGO" secondAttribute="trailing" multiplier="1.04" id="F1c-uu-a1b"/>
+                            <constraint firstItem="3jv-hn-KsV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="3.67:2" id="Icf-XY-FDa"/>
                             <constraint firstItem="3fJ-y0-bGO" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:10" id="KKo-Xj-X4L"/>
                             <constraint firstItem="3fJ-y0-bGO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" multiplier="1.4" id="KUW-Ix-wzA"/>
+                            <constraint firstItem="3jv-hn-KsV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MTe-XM-QGW"/>
                             <constraint firstAttribute="trailing" secondItem="K37-pX-IzO" secondAttribute="trailing" id="Vei-i6-CRN"/>
+                            <constraint firstItem="3jv-hn-KsV" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:5" id="ayR-PX-yx2"/>
                             <constraint firstItem="K37-pX-IzO" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:8" id="b9x-Ij-Qfb"/>
+                            <constraint firstItem="mhR-3P-GTa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fkK-qP-ekQ"/>
                             <constraint firstItem="K37-pX-IzO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kDr-HF-nNJ"/>
+                            <constraint firstItem="5bV-yU-IU7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-34" id="mhl-Xc-brb"/>
                             <constraint firstItem="p6R-6Z-Mrv" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="toy-O0-j7x"/>
+                            <constraint firstItem="5bV-yU-IU7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-84" id="vlL-oj-v6W"/>
+                            <constraint firstItem="mhR-3P-GTa" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:5" id="vzi-DD-2jy"/>
                             <constraint firstAttribute="trailing" secondItem="p6R-6Z-Mrv" secondAttribute="trailing" id="yzf-C1-2iH"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="activatePhoto" destination="3jv-hn-KsV" id="vju-6y-Or3"/>
                         <outlet property="faceTrackerContainerView" destination="p6R-6Z-Mrv" id="I9U-k9-zqp"/>
+                        <outlet property="photoButton" destination="mhR-3P-GTa" id="5v5-vG-BTa"/>
                         <outlet property="scrollView" destination="K37-pX-IzO" id="Vfe-da-0HD"/>
                         <outlet property="swapButton" destination="3fJ-y0-bGO" id="9i8-uE-Ww0"/>
-                        <outlet property="test" destination="5bV-yU-IU7" id="CiE-DO-Pgo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-556" y="-192"/>
+        </scene>
+        <!--Screenshot View Controller-->
+        <scene sceneID="6vX-7N-Kwa">
+            <objects>
+                <viewController id="vRh-1W-kiP" customClass="screenshotViewController" customModule="MyFaceTracking" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="K4L-PG-d3G"/>
+                        <viewControllerLayoutGuide type="bottom" id="w6E-64-EFa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p9M-eP-g2S">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kHb-6e-Mcn">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dom-po-0Jn" userLabel="deleteButton">
+                                <rect key="frame" x="365.5" y="34" width="28" height="37"/>
+                                <state key="normal" title="Button" image="deleteCross"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="GrV-L9-gK5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIk-5Z-fn1" userLabel="saveButton">
+                                <rect key="frame" x="172.5" y="632" width="69" height="74"/>
+                                <state key="normal" image="saveScreen"/>
+                                <connections>
+                                    <action selector="savePhoto:" destination="vRh-1W-kiP" eventType="touchUpInside" id="LHs-Ea-uwb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kHb-6e-Mcn" secondAttribute="trailing" id="1Ab-Ww-4a2"/>
+                            <constraint firstItem="kHb-6e-Mcn" firstAttribute="top" secondItem="K4L-PG-d3G" secondAttribute="bottom" constant="-20" id="6Ah-TY-Tqb"/>
+                            <constraint firstItem="ZIk-5Z-fn1" firstAttribute="centerY" secondItem="p9M-eP-g2S" secondAttribute="centerY" multiplier="1:0.55" id="85z-p5-V0l"/>
+                            <constraint firstItem="w6E-64-EFa" firstAttribute="top" secondItem="kHb-6e-Mcn" secondAttribute="bottom" id="Dan-Gm-Hpl"/>
+                            <constraint firstItem="dom-po-0Jn" firstAttribute="centerX" secondItem="p9M-eP-g2S" secondAttribute="centerX" multiplier="16.5:9" id="JNt-ai-lQV"/>
+                            <constraint firstItem="ZIk-5Z-fn1" firstAttribute="width" secondItem="p9M-eP-g2S" secondAttribute="width" multiplier="1:6" id="TcI-gD-zka"/>
+                            <constraint firstItem="dom-po-0Jn" firstAttribute="centerY" secondItem="p9M-eP-g2S" secondAttribute="centerY" multiplier="1:7" id="U59-MF-969"/>
+                            <constraint firstItem="dom-po-0Jn" firstAttribute="width" secondItem="p9M-eP-g2S" secondAttribute="width" multiplier="1:15" id="ZTZ-mU-sL9"/>
+                            <constraint firstItem="ZIk-5Z-fn1" firstAttribute="centerX" secondItem="p9M-eP-g2S" secondAttribute="centerX" id="b50-Sn-iJT"/>
+                            <constraint firstItem="kHb-6e-Mcn" firstAttribute="leading" secondItem="p9M-eP-g2S" secondAttribute="leading" id="h9Z-f9-8wg"/>
+                            <constraint firstItem="ZIk-5Z-fn1" firstAttribute="height" secondItem="p9M-eP-g2S" secondAttribute="height" multiplier="1:10" id="hyO-PB-zQ0"/>
+                            <constraint firstItem="dom-po-0Jn" firstAttribute="height" secondItem="p9M-eP-g2S" secondAttribute="height" multiplier="1:20" id="yOb-Qd-f1I"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="screenshotView" destination="kHb-6e-Mcn" id="5iu-dZ-49R"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ek-zx-IOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-556" y="726"/>
         </scene>
         <!--Face Tracker View Controller-->
         <scene sceneID="fzx-s4-SPy">
@@ -86,6 +166,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="swapCamera" width="128" height="128"/>
+        <image name="deleteCross" width="100" height="100"/>
+        <image name="saveScreen" width="100" height="100"/>
+        <image name="swapCamera" width="100" height="100"/>
     </resources>
 </document>
