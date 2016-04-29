@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		091470E71CD360DF00DCF9BF /* fire.gif in Resources */ = {isa = PBXBuildFile; fileRef = 091470E61CD360DF00DCF9BF /* fire.gif */; };
 		098C464D1CC0F04D00D8D885 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C464C1CC0F04D00D8D885 /* AppDelegate.swift */; };
 		098C464F1CC0F04D00D8D885 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C464E1CC0F04D00D8D885 /* ViewController.swift */; };
 		098C46521CC0F04D00D8D885 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 098C46501CC0F04D00D8D885 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		091470E61CD360DF00DCF9BF /* fire.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = fire.gif; path = gif/fire.gif; sourceTree = "<group>"; };
 		098C46491CC0F04D00D8D885 /* MyFaceTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFaceTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		098C464C1CC0F04D00D8D885 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		098C464E1CC0F04D00D8D885 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,10 +100,10 @@
 				098C464E1CC0F04D00D8D885 /* ViewController.swift */,
 				09FB03871CD23542000C170B /* screenshotViewController.swift */,
 				098C46501CC0F04D00D8D885 /* Main.storyboard */,
+				09E6657A1CC7A0CC00A6AB0F /* Tools */,
 				09FB03801CC9211C000C170B /* gif */,
 				098C46531CC0F04D00D8D885 /* Assets.xcassets */,
 				098C46551CC0F04D00D8D885 /* LaunchScreen.storyboard */,
-				09E6657A1CC7A0CC00A6AB0F /* Tools */,
 				098C46581CC0F04D00D8D885 /* Info.plist */,
 			);
 			path = MyFaceTracking;
@@ -121,6 +123,7 @@
 		09FB03801CC9211C000C170B /* gif */ = {
 			isa = PBXGroup;
 			children = (
+				091470E61CD360DF00DCF9BF /* fire.gif */,
 				09FB03851CC9250D000C170B /* waterFall.gif */,
 				09FB03831CC92281000C170B /* rainbow.gif */,
 			);
@@ -211,6 +214,7 @@
 				098C46571CC0F04D00D8D885 /* LaunchScreen.storyboard in Resources */,
 				09FB03841CC92281000C170B /* rainbow.gif in Resources */,
 				098C46541CC0F04D00D8D885 /* Assets.xcassets in Resources */,
+				091470E71CD360DF00DCF9BF /* fire.gif in Resources */,
 				098C46521CC0F04D00D8D885 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

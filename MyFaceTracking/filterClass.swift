@@ -16,6 +16,8 @@ class Filter {
     var noseDogView = UIImageView()
     var tongueDogView = UIImageView()
     var waterFallView = UIImageView()
+    var fireView = UIImageView()
+    var beardView = UIImageView()
     
     let processPoint = ProcessPoints()
     
@@ -110,6 +112,42 @@ class Filter {
         waterFallView.transform = CGAffineTransformMakeRotation(processPoint.processAngle(points[0], point2: points[6]))
         
         return (waterFallView)
+    }
+    
+    /** Fire **/
+    
+    func drawFire(view: UIView) -> UIImageView {
+        if (fireView.image == nil) {
+            let image = UIImage.gifWithName("fire")
+            fireView.image = image
+        }
+        fireView.transform = CGAffineTransformIdentity
+        fireView.frame = CGRectMake(view.frame.origin.x, view.frame.maxY - 370, view.frame.width, 400)
+        waterFallView.hidden = false
+        
+        return (fireView)
+
+    }
+
+    func drawBeard(points: [CGPoint]) -> UIImageView {
+        if (beardView.image == nil) {
+            let image = UIImage(named: "beard")
+            beardView.image = image
+        }
+        
+        let center = processPoint.processCenter(points[0], point2: points[7])
+        //let cornerDist = processPoint.processCornerDist(points[0], point2: points[7])
+        let width = (CGFloat(points[0].x) + CGFloat(points[6].x)) / 1.7
+        let height = (beardView.image!.size.height / beardView.image!.size.width) * width
+        
+        
+        beardView.transform = CGAffineTransformIdentity
+        beardView.frame = CGRectMake(center.x - width / 2 + 8, center.y - 125, width, height)
+        beardView.hidden = false
+        processPoint.setAnchorPoint(CGPointMake(0.5, 1.0), forView: beardView)
+        beardView.transform = CGAffineTransformMakeRotation(processPoint.processAngle(points[0], point2: points[6]))
+        
+        return (beardView)
     }
 
 }

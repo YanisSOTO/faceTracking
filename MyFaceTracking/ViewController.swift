@@ -27,6 +27,8 @@ class ViewController: UIViewController, FaceTrackerViewControllerDelegate, UIScr
     var noseDogView = UIImageView()
     var tongueDogView = UIImageView()
     var waterFallView = UIImageView()
+    var fireView = UIImageView()
+    var beardView = UIImageView()
     /* End */
     
     /* Boutlet from MainStoryBoard */
@@ -87,7 +89,13 @@ class ViewController: UIViewController, FaceTrackerViewControllerDelegate, UIScr
                     waterFallView = filter.drawWaterFall(points.outerMouth)
                     self.view.addSubview(waterFallView)
                 }
-
+            case 3:
+                waterFallView.removeFromSuperview()
+                fireView = filter.drawFire(faceTrackerContainerView)
+                self.view.insertSubview(fireView, aboveSubview: faceTrackerContainerView)
+            case 4:
+                beardView = filter.drawBeard(points.outerMouth)
+                self.view.addSubview(beardView)
             default:
                 print("No state")
             }
@@ -103,6 +111,8 @@ class ViewController: UIViewController, FaceTrackerViewControllerDelegate, UIScr
         noseDogView.hidden = true
         tongueDogView.hidden = true
         waterFallView.hidden = true
+        fireView.removeFromSuperview()
+        beardView.hidden = true
     }
     
     /* Simple Swap camera */
@@ -120,7 +130,7 @@ class ViewController: UIViewController, FaceTrackerViewControllerDelegate, UIScr
         photoButton.layer.borderWidth = 4
         photoButton.layer.borderColor = UIColor.whiteColor().CGColor
         
-        for index in 0..<30 {
+        for index in 0..<5 {
             let frame1 = CGRect(x: ((self.view.frame.size.width / 2) - 27.5) + CGFloat(index * 70), y: 0, width: 55, height: 55 )
             let button = UIButton(frame: frame1)
             button.setImage(imageArray[index], forState: .Normal)
@@ -144,6 +154,10 @@ class ViewController: UIViewController, FaceTrackerViewControllerDelegate, UIScr
             self.stateFilter = 1
         case 2:
             self.stateFilter = 2
+        case 3:
+            self.stateFilter = 3
+        case 4:
+            self.stateFilter = 4
         default:
             print("No button selected")
         }
