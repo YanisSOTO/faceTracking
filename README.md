@@ -2,6 +2,9 @@
 iOS App who use facial recognition to apply some filter (like snapchat).
 Facial recognition include Eyes, nose, mouth (inner mouth and outter mouth). Using png and gif(SwiftyGif on cocoapods).
 
+ Library used :   SwiftGifOrigin
+
+
 Some filters :
 
 ![alt tag](http://i.imgur.com/jYX1hOG.jpg?1 "Description goes here")
