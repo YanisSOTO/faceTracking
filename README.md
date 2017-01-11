@@ -1,4 +1,7 @@
 # faceTracking
+
+/!\ The facetracker is depreciated, isn't working anymore.
+
 iOS App who use facial recognition to apply some filter (like snapchat).
 Facial recognition include Eyes, nose, mouth (inner mouth and outter mouth). Using png and gif(SwiftyGif on cocoapods).
 
